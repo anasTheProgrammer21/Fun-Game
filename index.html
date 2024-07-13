@@ -1,0 +1,1655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make your Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        header {
+            text-align: center;
+        }
+        header h1 {
+            padding: 10px;
+        }
+        main {
+            width: 100vw;
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .row1, .row2, .row3, .row4, .row5, .row6, .row7, .row8, .row9{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 99vw;
+        }
+
+        .row1 hr, .row2 hr, .row3 hr, .row4 hr, .row5 hr, .row6 hr, .row7 hr, .row8 hr, .row9 hr  {
+            height: 4px;
+        }
+        .dot {
+            background-color: red;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            cursor: crosshair;
+        }
+        .hr {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 99vw;
+        }
+        hr {
+            visibility: hidden;
+            border: 0px;
+        }
+
+        .players {
+            font-size: xx-large;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .player1, .player2, input {
+            font-size: x-large;
+        }
+
+        .player1, .player2 {
+            cursor: cell;
+        }
+
+        input {
+            display: none;
+        }
+
+        h2 {
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Game</h1>
+        <div class="instructions"></div>
+    </header>
+    <div class="players">
+        <input placeholder="Write First Player Name:" type="text" id="player1">
+        <div title="click to edit the name" class="player1">Player-1</div>
+        <div>V/S</div>
+        <div title="click to edit the name" class="player2">Player-2</div>
+        <input placeholder="Write Second Player Name:" type="text" id="player2">
+    </div>
+    <main>
+        <div class="row1">
+            <div data-id="dot1" class="dot dot1"></div>
+            <hr data-where="1-2" color="red" width="56px">
+            <div data-id="dot2" class="dot dot2"></div>
+            <hr data-where="2-3" color="red" width="56px">
+            <div data-id="dot3" class="dot dot3"></div>
+            <hr data-where="3-4" color="red" width="56px">
+            <div data-id="dot4" class="dot dot4"></div>
+            <hr data-where="4-5" color="red" width="56px">
+            <div data-id="dot5" class="dot dot5"></div>
+            <hr data-where="5-6" color="red" width="56px">
+            <div data-id="dot6" class="dot dot6"></div>
+            <hr data-where="6-7" color="red" width="56px">
+            <div data-id="dot7" class="dot dot7"></div>
+            <hr data-where="7-8" color="red" width="56px">
+            <div data-id="dot8" class="dot dot8"></div>
+            <hr data-where="8-9" color="red" width="56px">
+            <div data-id="dot9" class="dot dot9"></div>
+            <hr data-where="9-10" color="red" width="56px">
+            <div data-id="dot10" class="dot dot10"></div>
+            <hr data-where="10-11" color="red" width="56px">
+            <div data-id="dot11" class="dot dot11"></div>
+            <hr data-where="11-12" color="red" width="56px">
+            <div data-id="dot12" class="dot dot12"></div>
+            <hr data-where="12-13" color="red" width="56px">
+            <div data-id="dot13" class="dot dot13"></div>
+            <hr data-where="13-14" color="red" width="56px">
+            <div data-id="dot14" class="dot dot14"></div>
+            <hr data-where="14-15" color="red" width="56px">
+            <div data-id="dot15" class="dot dot15"></div>
+            <hr data-where="15-16" color="red" width="56px">
+            <div data-id="dot16" class="dot dot16"></div>
+            <hr data-where="16-17" color="red" width="56px">
+            <div data-id="dot17" class="dot dot17"></div>
+            <hr data-where="17-18" color="red" width="56px">
+            <div data-id="dot18" class="dot dot18"></div>
+            <hr data-where="18-19" color="red" width="56px">
+            <div data-id="dot19" class="dot dot19"></div>
+            <hr data-where="19-20" color="red" width="56px">
+            <div data-id="dot20" class="dot dot20"></div>
+        </div>
+        <div class="hr">
+            <hr data-where="1-21" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="2-22" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="3-23" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="4-24" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="5-25" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="6-26" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="7-27" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="8-28" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="9-29" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="10-30" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="11-31" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="12-32" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="13-33" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="14-34" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="15-35" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="16-36" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="17-37" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="18-38" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="19-39" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="20-40" color="red" size="56px" width="4px">
+        </div>
+        <div class="row2">
+            <div data-id="dot21" class="dot dot21"></div>
+            <hr data-where="21-22" color="red" width="56px">
+            <div data-id="dot22" class="dot dot22"></div>
+            <hr data-where="22-23" color="red" width="56px">
+            <div data-id="dot23" class="dot dot23"></div>
+            <hr data-where="23-24" color="red" width="56px">
+            <div data-id="dot24" class="dot dot24"></div>
+            <hr data-where="24-25" color="red" width="56px">
+            <div data-id="dot25" class="dot dot25"></div>
+            <hr data-where="25-26" color="red" width="56px">
+            <div data-id="dot26" class="dot dot26"></div>
+            <hr data-where="26-27" color="red" width="56px">
+            <div data-id="dot27" class="dot dot27"></div>
+            <hr data-where="27-28" color="red" width="56px">
+            <div data-id="dot28" class="dot dot28"></div>
+            <hr data-where="28-29" color="red" width="56px">
+            <div data-id="dot29" class="dot dot29"></div>
+            <hr data-where="29-30" color="red" width="56px">
+            <div data-id="dot30" class="dot dot30"></div>
+            <hr data-where="30-31" color="red" width="56px">
+            <div data-id="dot31" class="dot dot31"></div>
+            <hr data-where="31-32" color="red" width="56px">
+            <div data-id="dot32" class="dot dot32"></div>
+            <hr data-where="32-33" color="red" width="56px">
+            <div data-id="dot33" class="dot dot33"></div>
+            <hr data-where="33-34" color="red" width="56px">
+            <div data-id="dot34" class="dot dot34"></div>
+            <hr data-where="34-35" color="red" width="56px">
+            <div data-id="dot35" class="dot dot35"></div>
+            <hr data-where="35-36" color="red" width="56px">
+            <div data-id="dot36" class="dot dot36"></div>
+            <hr data-where="36-37" color="red" width="56px">
+            <div data-id="dot37" class="dot dot37"></div>
+            <hr data-where="37-38" color="red" width="56px">
+            <div data-id="dot38" class="dot dot38"></div>
+            <hr data-where="38-39" color="red" width="56px">
+            <div data-id="dot39" class="dot dot39"></div>
+            <hr data-where="39-40" color="red" width="56px">
+            <div data-id="dot40" class="dot dot40"></div>
+        </div>
+        <div class="hr">
+            <hr data-where="21-41" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="22-42" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="23-43" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="24-44" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="25-45" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="26-46" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="27-47" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="28-48" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="29-49" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="30-50" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="31-51" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="32-52" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="33-53" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="34-54" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="35-55" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="36-56" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="37-57" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="38-58" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="39-59" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="40-60" color="red" size="56px" width="4px">
+        </div>
+        <div class="row3">
+            <div data-id="dot41" class="dot dot41"></div>
+            <hr data-where="41-42" color="red" width="56px">
+            <div data-id="dot42" class="dot dot42"></div>
+            <hr data-where="42-43" color="red" width="56px">
+            <div data-id="dot43" class="dot dot43"></div>
+            <hr data-where="43-44" color="red" width="56px">
+            <div data-id="dot44" class="dot dot44"></div>
+            <hr data-where="44-45" color="red" width="56px">
+            <div data-id="dot45" class="dot dot45"></div>
+            <hr data-where="45-46" color="red" width="56px">
+            <div data-id="dot46" class="dot dot46"></div>
+            <hr data-where="46-47" color="red" width="56px">
+            <div data-id="dot47" class="dot dot47"></div>
+            <hr data-where="47-48" color="red" width="56px">
+            <div data-id="dot48" class="dot dot48"></div>
+            <hr data-where="48-49" color="red" width="56px">
+            <div data-id="dot49" class="dot dot49"></div>
+            <hr data-where="49-50" color="red" width="56px">
+            <div data-id="dot50" class="dot dot50"></div>
+            <hr data-where="50-51" color="red" width="56px">
+            <div data-id="dot51" class="dot dot51"></div>
+            <hr data-where="51-52" color="red" width="56px">
+            <div data-id="dot52" class="dot dot52"></div>
+            <hr data-where="52-53" color="red" width="56px">
+            <div data-id="dot53" class="dot dot53"></div>
+            <hr data-where="53-54" color="red" width="56px">
+            <div data-id="dot54" class="dot dot54"></div>
+            <hr data-where="54-55" color="red" width="56px">
+            <div data-id="dot55" class="dot dot55"></div>
+            <hr data-where="55-56" color="red" width="56px">
+            <div data-id="dot56" class="dot dot56"></div>
+            <hr data-where="56-57" color="red" width="56px">
+            <div data-id="dot57" class="dot dot57"></div>
+            <hr data-where="57-58" color="red" width="56px">
+            <div data-id="dot58" class="dot dot58"></div>
+            <hr data-where="58-59" color="red" width="56px">
+            <div data-id="dot59" class="dot dot59"></div>
+            <hr data-where="59-60" color="red" width="56px">
+            <div data-id="dot60" class="dot dot60"></div>
+        </div>
+        <div class="hr">
+            <hr data-where="41-61" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="42-62" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="43-63" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="44-64" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="45-65" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="46-66" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="47-67" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="48-68" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="49-69" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="50-70" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="51-71" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="52-72" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="53-73" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="54-74" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="55-75" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="56-76" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="57-77" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="58-78" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="59-79" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="60-80" color="red" size="56px" width="4px">
+        </div>
+        <div class="row4">
+            <div data-id="dot61" class="dot dot61"></div>
+            <hr data-where="61-62" color="red" width="56px">
+            <div data-id="dot62" class="dot dot62"></div>
+            <hr data-where="62-63" color="red" width="56px">
+            <div data-id="dot63" class="dot dot63"></div>
+            <hr data-where="63-64" color="red" width="56px">
+            <div data-id="dot64" class="dot dot64"></div>
+            <hr data-where="64-65" color="red" width="56px">
+            <div data-id="dot65" class="dot dot65"></div>
+            <hr data-where="65-66" color="red" width="56px">
+            <div data-id="dot66" class="dot dot66"></div>
+            <hr data-where="66-67" color="red" width="56px">
+            <div data-id="dot67" class="dot dot67"></div>
+            <hr data-where="67-68" color="red" width="56px">
+            <div data-id="dot68" class="dot dot68"></div>
+            <hr data-where="68-69" color="red" width="56px">
+            <div data-id="dot69" class="dot dot69"></div>
+            <hr data-where="69-70" color="red" width="56px">
+            <div data-id="dot70" class="dot dot70"></div>
+            <hr data-where="70-71" color="red" width="56px">
+            <div data-id="dot71" class="dot dot71"></div>
+            <hr data-where="71-72" color="red" width="56px">
+            <div data-id="dot72" class="dot dot72"></div>
+            <hr data-where="72-73" color="red" width="56px">
+            <div data-id="dot73" class="dot dot73"></div>
+            <hr data-where="73-74" color="red" width="56px">
+            <div data-id="dot74" class="dot dot74"></div>
+            <hr data-where="74-75" color="red" width="56px">
+            <div data-id="dot75" class="dot dot75"></div>
+            <hr data-where="75-76" color="red" width="56px">
+            <div data-id="dot76" class="dot dot76"></div>
+            <hr data-where="76-77" color="red" width="56px">
+            <div data-id="dot77" class="dot dot77"></div>
+            <hr data-where="77-78" color="red" width="56px">
+            <div data-id="dot78" class="dot dot78"></div>
+            <hr data-where="78-79" color="red" width="56px">
+            <div data-id="dot79" class="dot dot79"></div>
+            <hr data-where="79-80" color="red" width="56px">
+            <div data-id="dot80" class="dot dot80"></div>
+        </div>
+        <div class="hr">
+            <hr data-where="61-81" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="62-82" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="63-83" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="64-84" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="65-85" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="66-86" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="67-87" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="68-88" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="69-89" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="70-90" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="71-91" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="72-92" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="73-93" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="74-94" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="75-95" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="76-96" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="77-97" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="78-98" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="79-99" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="80-100" color="red" size="56px" width="4px">
+        </div>
+        <div class="row5">
+            <div data-id="dot81" class="dot dot81"></div>
+            <hr data-where="81-82" color="red" width="56px">
+            <div data-id="dot82" class="dot dot82"></div>
+            <hr data-where="82-83" color="red" width="56px">
+            <div data-id="dot83" class="dot dot83"></div>
+            <hr data-where="83-84" color="red" width="56px">
+            <div data-id="dot84" class="dot dot84"></div>
+            <hr data-where="84-85" color="red" width="56px">
+            <div data-id="dot85" class="dot dot85"></div>
+            <hr data-where="85-86" color="red" width="56px">
+            <div data-id="dot86" class="dot dot86"></div>
+            <hr data-where="86-87" color="red" width="56px">
+            <div data-id="dot87" class="dot dot87"></div>
+            <hr data-where="87-88" color="red" width="56px">
+            <div data-id="dot88" class="dot dot88"></div>
+            <hr data-where="88-89" color="red" width="56px">
+            <div data-id="dot89" class="dot dot89"></div>
+            <hr data-where="89-90" color="red" width="56px">
+            <div data-id="dot90" class="dot dot90"></div>
+            <hr data-where="90-91" color="red" width="56px">
+            <div data-id="dot91" class="dot dot91"></div>
+            <hr data-where="91-92" color="red" width="56px">
+            <div data-id="dot92" class="dot dot92"></div>
+            <hr data-where="92-93" color="red" width="56px">
+            <div data-id="dot93" class="dot dot93"></div>
+            <hr data-where="93-94" color="red" width="56px">
+            <div data-id="dot94" class="dot dot94"></div>
+            <hr data-where="94-95" color="red" width="56px">
+            <div data-id="dot95" class="dot dot95"></div>
+            <hr data-where="95-96" color="red" width="56px">
+            <div data-id="dot96" class="dot dot96"></div>
+            <hr data-where="96-97" color="red" width="56px">
+            <div data-id="dot97" class="dot dot97"></div>
+            <hr data-where="97-98" color="red" width="56px">
+            <div data-id="dot98" class="dot dot98"></div>
+            <hr data-where="98-99" color="red" width="56px">
+            <div data-id="dot99" class="dot dot99"></div>
+            <hr data-where="99-100" color="red" width="56px">
+            <div data-id="dot100" class="dot dot100"></div>
+        </div>
+        <div class="hr">
+            <hr data-where="81-101" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="82-102" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="83-103" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="84-104" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="85-105" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="86-106" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="87-107" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="88-108" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="89-109" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="90-110" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="91-111" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="92-112" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="93-113" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="94-114" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="95-115" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="96-116" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="97-117" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="98-118" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="99-119" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="100-120" color="red" size="56px" width="4px">
+        </div>
+        <div class="row6">
+            <div data-id="dot101" class="dot dot101"></div>
+            <hr data-where="101-102" color="red" width="56px">
+            <div data-id="dot102" class="dot dot102"></div>
+            <hr data-where="102-103" color="red" width="56px">
+            <div data-id="dot103" class="dot dot103"></div>
+            <hr data-where="103-104" color="red" width="56px">
+            <div data-id="dot104" class="dot dot104"></div>
+            <hr data-where="104-105" color="red" width="56px">
+            <div data-id="dot105" class="dot dot105"></div>
+            <hr data-where="105-106" color="red" width="56px">
+            <div data-id="dot106" class="dot dot106"></div>
+            <hr data-where="106-107" color="red" width="56px">
+            <div data-id="dot107" class="dot dot107"></div>
+            <hr data-where="107-108" color="red" width="56px">
+            <div data-id="dot108" class="dot dot108"></div>
+            <hr data-where="108-109" color="red" width="56px">
+            <div data-id="dot109" class="dot dot109"></div>
+            <hr data-where="109-110" color="red" width="56px">
+            <div data-id="dot110" class="dot dot110"></div>
+            <hr data-where="110-111" color="red" width="56px">
+            <div data-id="dot111" class="dot dot111"></div>
+            <hr data-where="111-112" color="red" width="56px">
+            <div data-id="dot112" class="dot dot112"></div>
+            <hr data-where="112-113" color="red" width="56px">
+            <div data-id="dot113" class="dot dot113"></div> 
+            <hr data-where="113-114" color="red" width="56px">
+            <div data-id="dot114" class="dot dot114"></div>
+            <hr data-where="114-115" color="red" width="56px">
+            <div data-id="dot115" class="dot dot115"></div>
+            <hr data-where="115-116" color="red" width="56px">
+            <div data-id="dot116" class="dot dot116"></div>
+            <hr data-where="116-117" color="red" width="56px">
+            <div data-id="dot117" class="dot dot117"></div>
+            <hr data-where="117-118" color="red" width="56px">
+            <div data-id="dot118" class="dot dot118"></div>
+            <hr data-where="118-119" color="red" width="56px">
+            <div data-id="dot119" class="dot dot119"></div>
+            <hr data-where="119-120" color="red" width="56px">
+            <div data-id="dot120" class="dot dot120"></div>
+        </div>
+        <div class="hr">
+            <hr data-where="101-121" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="102-122" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="103-123" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="104-124" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="105-125" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="106-126" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="107-127" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="108-128" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="109-129" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="110-130" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="111-131" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="112-132" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="113-133" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="114-134" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="115-135" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="116-136" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="117-137" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="118-138" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="119-139" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="120-140" color="red" size="56px" width="4px">
+        </div>
+        <div class="row7">
+            <div data-id="dot121" class="dot dot121"></div>
+            <hr data-where="121-122" color="red" width="56px">
+            <div data-id="dot122" class="dot dot122"></div>
+            <hr data-where="122-123" color="red" width="56px">
+            <div data-id="dot123" class="dot dot123"></div>
+            <hr data-where="123-124" color="red" width="56px">
+            <div data-id="dot124" class="dot dot124"></div>
+            <hr data-where="124-125" color="red" width="56px">
+            <div data-id="dot125" class="dot dot125"></div>
+            <hr data-where="125-126" color="red" width="56px">
+            <div data-id="dot126" class="dot dot126"></div>
+            <hr data-where="126-127" color="red" width="56px">
+            <div data-id="dot127" class="dot dot127"></div>
+            <hr data-where="127-128" color="red" width="56px">
+            <div data-id="dot128" class="dot dot128"></div>
+            <hr data-where="128-129" color="red" width="56px">
+            <div data-id="dot129" class="dot dot129"></div>
+            <hr data-where="129-130" color="red" width="56px">
+            <div data-id="dot130" class="dot dot130"></div>
+            <hr data-where="130-131" color="red" width="56px">
+            <div data-id="dot131" class="dot dot131"></div>
+            <hr data-where="131-132" color="red" width="56px">
+            <div data-id="dot132" class="dot dot132"></div>
+            <hr data-where="132-133" color="red" width="56px">
+            <div data-id="dot133" class="dot dot133"></div>
+            <hr data-where="133-134" color="red" width="56px">
+            <div data-id="dot134" class="dot dot134"></div>
+            <hr data-where="134-135" color="red" width="56px">
+            <div data-id="dot135" class="dot dot135"></div>
+            <hr data-where="135-136" color="red" width="56px">
+            <div data-id="dot136" class="dot dot136"></div>
+            <hr data-where="136-137" color="red" width="56px">
+            <div data-id="dot137" class="dot dot137"></div>
+            <hr data-where="137-138" color="red" width="56px">
+            <div data-id="dot138" class="dot dot138"></div>
+            <hr data-where="138-139" color="red" width="56px">
+            <div data-id="dot139" class="dot dot139"></div>
+            <hr data-where="139-140" color="red" width="56px">
+            <div data-id="dot140" class="dot dot140"></div>
+        </div>
+        <div class="hr">
+            <hr data-where="121-141" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="122-142" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="123-143" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="124-144" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="125-145" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="126-146" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="127-147" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="128-148" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="129-149" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="130-150" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="131-151" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="132-152" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="133-153" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="134-154" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="135-155" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="136-156" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="137-157" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="138-158" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="139-159" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="140-160" color="red" size="56px" width="4px">
+        </div>
+        <div class="row8">
+            <div data-id="dot141" class="dot dot141"></div>
+            <hr data-where="141-142" color="red" width="56px">
+            <div data-id="dot142" class="dot dot142"></div>
+            <hr data-where="142-143" color="red" width="56px">
+            <div data-id="dot143" class="dot dot143"></div>
+            <hr data-where="143-144" color="red" width="56px">
+            <div data-id="dot144" class="dot dot144"></div>
+            <hr data-where="144-145" color="red" width="56px">
+            <div data-id="dot145" class="dot dot145"></div>
+            <hr data-where="145-146" color="red" width="56px">
+            <div data-id="dot146" class="dot dot146"></div>
+            <hr data-where="146-147" color="red" width="56px">
+            <div data-id="dot147" class="dot dot147"></div>
+            <hr data-where="147-148" color="red" width="56px">
+            <div data-id="dot148" class="dot dot148"></div>
+            <hr data-where="148-149" color="red" width="56px">
+            <div data-id="dot149" class="dot dot149"></div>
+            <hr data-where="149-150" color="red" width="56px">
+            <div data-id="dot150" class="dot dot150"></div>
+            <hr data-where="150-151" color="red" width="56px">
+            <div data-id="dot151" class="dot dot151"></div>
+            <hr data-where="151-152" color="red" width="56px">
+            <div data-id="dot152" class="dot dot152"></div>
+            <hr data-where="152-153" color="red" width="56px">
+            <div data-id="dot153" class="dot dot153"></div>
+            <hr data-where="153-154" color="red" width="56px">
+            <div data-id="dot154" class="dot dot154"></div>
+            <hr data-where="154-155" color="red" width="56px">
+            <div data-id="dot155" class="dot dot155"></div>
+            <hr data-where="155-156" color="red" width="56px">
+            <div data-id="dot156" class="dot dot156"></div>
+            <hr data-where="156-157" color="red" width="56px">
+            <div data-id="dot157" class="dot dot157"></div>
+            <hr data-where="157-158" color="red" width="56px">
+            <div data-id="dot158" class="dot dot158"></div>
+            <hr data-where="158-159" color="red" width="56px">
+            <div data-id="dot159" class="dot dot159"></div>
+            <hr data-where="159-160" color="red" width="56px">
+            <div data-id="dot160" class="dot dot160"></div>
+        </div>
+        <div class="hr">
+            <hr data-where="141-161" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="142-162" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="143-163" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="144-164" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="145-165" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="146-166" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="147-167" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="148-168" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="149-169" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="150-170" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="151-171" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="152-172" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="153-173" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="154-174" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="155-175" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="156-176" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="157-177" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="158-178" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="159-179" color="red" size="56px" width="4px">
+            <h2>P</h2>
+            <hr data-where="160-180" color="red" size="56px" width="4px">
+        </div>
+        <div class="row9">
+            <div data-id="dot161" class="dot dot161"></div>
+            <hr data-where="161-162" color="red" width="56px">
+            <div data-id="dot162" class="dot dot162"></div>
+            <hr data-where="162-163" color="red" width="56px">
+            <div data-id="dot163" class="dot dot163"></div>
+            <hr data-where="163-164" color="red" width="56px">
+            <div data-id="dot164" class="dot dot164"></div>
+            <hr data-where="164-165" color="red" width="56px">
+            <div data-id="dot165" class="dot dot165"></div>
+            <hr data-where="165-166" color="red" width="56px">
+            <div data-id="dot166" class="dot dot166"></div>
+            <hr data-where="166-167" color="red" width="56px">
+            <div data-id="dot167" class="dot dot167"></div>
+            <hr data-where="167-168" color="red" width="56px">
+            <div data-id="dot168" class="dot dot168"></div>
+            <hr data-where="168-169" color="red" width="56px">
+            <div data-id="dot169" class="dot dot169"></div>
+            <hr data-where="169-170" color="red" width="56px">
+            <div data-id="dot170" class="dot dot170"></div>
+            <hr data-where="170-171" color="red" width="56px">
+            <div data-id="dot171" class="dot dot171"></div>
+            <hr data-where="171-172" color="red" width="56px">
+            <div data-id="dot172" class="dot dot172"></div>
+            <hr data-where="172-173" color="red" width="56px">
+            <div data-id="dot173" class="dot dot173"></div>
+            <hr data-where="173-174" color="red" width="56px">
+            <div data-id="dot174" class="dot dot174"></div>
+            <hr data-where="174-175" color="red" width="56px">
+            <div data-id="dot175" class="dot dot175"></div>
+            <hr data-where="175-176" color="red" width="56px">
+            <div data-id="dot176" class="dot dot176"></div>
+            <hr data-where="176-177" color="red" width="56px">
+            <div data-id="dot177" class="dot dot177"></div>
+            <hr data-where="177-178" color="red" width="56px">
+            <div data-id="dot178" class="dot dot178"></div>
+            <hr data-where="178-179" color="red" width="56px">
+            <div data-id="dot179" class="dot dot179"></div>
+            <hr data-where="179-180" color="red" width="56px">
+            <div data-id="dot180" class="dot dot180"></div>
+        </div>
+    </main>
+    <button onclick="checking_result()">Click-Me</button>
+    <p></p>
+    
+    <script>
+        // checking_result()
+        // declare the variables
+        let permission_dot_reset = false;
+        let previous;
+        let from = undefined;
+        let to = undefined;
+        let key = undefined;
+        let target = undefined;
+        let id = undefined;
+        let checker = undefined;
+        let visible = undefined;
+        let current_line = undefined;
+        let h2 = document.querySelectorAll("h2");
+        let hr = document.querySelectorAll("hr");
+        let permission_for_checking_house = false;
+        let signal_from_draw_line = false;
+        let player1_permission = true;
+        let player2_permission = false;
+        // loop over all the hr tags and hide all the lines//
+        for (let i = 0; i <= hr.length - 1; i++) {
+            hr[i].style.visibility = "hidden";
+        }
+        for (let i = 0; i <= h2.length - 1; i++) {
+            h2[i].style.visibility = "hidden";
+        }
+        // declare a function for drawing lines
+        function draw_line(element) {
+            // console.log(element);
+            if (element.style.visibility === "hidden") {
+                
+                // console.log("the visibility was hidden!");
+                element.style.visibility = "visible";
+                if (player1_permission === true) {
+                    current_line.style.backgroundColor = "green";
+                }
+                else if (player2_permission === true) {
+                    current_line.style.backgroundColor = "blue";
+                }
+                signal_from_draw_line = true;
+            }
+            else if (element.style.visibility === "visible") {
+                signal_from_draw_line = false;
+            }
+        }
+        // delare a function, to write player's name's first letter in the box;
+        function box_filling(box) {
+            console.log("we are in box filling function!")
+            if (player1_permission === true && player2_permission === false) {
+                box.innerHTML = document.querySelector(".player1").innerHTML[0];
+            }
+            else if (player1_permission === false && player2_permission === true) {
+                box.innerHTML = document.querySelector(".player2").innerHTML[0];
+            }
+        }
+        // add event listner, when a player's div clicked
+        document.addEventListener('click', event => {
+            // document.querySelector("p").innerHTML = `${event.target}`
+            if (event.target.className === "player1") {
+                document.querySelector(".player1").style.display = "none";
+                document.querySelector("#player1").style.display = "block";
+                document.addEventListener('keydown', event => {
+                    if (event.key === "Enter") {
+                        document.querySelector(".player1").innerHTML = document.querySelector("#player1").value;
+                        document.querySelector(".player1").style.display = "block";
+                        document.querySelector("#player1").style.display = "none";
+                    }
+                })
+            }
+            else if (event.target.className === "player2") {
+                document.querySelector(".player2").style.display = "none";
+                document.querySelector("#player2").style.display = "block";
+                document.addEventListener('keydown', event => {
+                    if (event.key === "Enter") {
+                        document.querySelector(".player2").innerHTML = document.querySelector("#player2").value;
+                        document.querySelector(".player2").style.display = "block";
+                        document.querySelector("#player2").style.display = "none";
+                    }
+                });
+            }
+            // console.log(event.t)
+            // event.target.remove();
+        });
+
+        function changing_color_player_turn() {
+            if (player1_permission === true && player2_permission === false) {
+                
+                if (document.querySelector("p").innerHTML === "Now 1 house is completed!") {
+                    // changing the color
+                    // document.querySelector(".player1").style.color = "green";
+                    document.querySelector(".player1").style.fontSize = "xx-large";
+                    // document.querySelector(".player2").style.color = "red";
+                    document.querySelector(".player2").style.fontSize = "x-large";
+                    // change the turn
+                    player1_permission = true;
+                    player2_permission = false;
+                    console.log("player-1 is true in player-1");
+                    console.log(`because of ${document.querySelector("p").innerHTML}`);
+                }
+                else if (document.querySelector("p").innerHTML !== "Now 1 house is completed!") {
+                    // document.querySelector(".player2").style.color = "green";
+                    document.querySelector(".player2").style.fontSize = "xx-large";
+                    // document.querySelector(".player1").style.color = "red";
+                    document.querySelector(".player1").style.fontSize = "x-large";
+                    // changing players turn
+                    player1_permission = false;
+                    player2_permission = true;
+                    console.log("player-1 is false in player-1");
+                    console.log(`because of ${document.querySelector("p").innerHTML}`);
+                }
+            }
+            else if (player2_permission === true && player1_permission === false) {
+                if (document.querySelector("p").innerHTML === "Now 1 house is completed!") {
+                    // document.querySelector(".player2").style.color = "green";
+                    document.querySelector(".player2").style.fontSize = "xx-large";
+                    // document.querySelector(".player1").style.color = "red";
+                    document.querySelector(".player1").style.fontSize = "x-large";
+                    // changing players turn
+                    player1_permission = false;
+                    player2_permission = true;
+                    console.log("player-2 is true in player-2");
+                    console.log(`because of ${document.querySelector("p").innerHTML}`);
+                }
+                else if (document.querySelector("p").innerHTML !== "Now 1 house is completed!") {
+                    // changing the color
+                    // document.querySelector(".player1").style.color = "green";
+                    document.querySelector(".player1").style.fontSize = "xx-large";
+                    // document.querySelector(".player2").style.color = "red";
+                    document.querySelector(".player2").style.fontSize = "x-large";
+                    // change the turn
+                    player1_permission = true;
+                    player2_permission = false;
+                    console.log("player-2 is false in player-2");
+                    console.log(`because of ${document.querySelector("p").innerHTML}`);
+                }
+                // player1_permission = true;
+                // player2_permission = false;
+            }
+        }
+        function start_game() {
+                    // changing the color
+                    document.querySelector(".player1").style.color = "green";
+                    document.querySelector(".player1").style.fontSize = "xx-large";
+                    document.querySelector(".player2").style.color = "blue";
+                    document.querySelector(".player2").style.fontSize = "x-large";
+                    // change the turn
+                    player1_permission = true;
+                    player2_permission = false;
+        }
+        start_game();
+        // start a function, when the users want to end the game, and time to find the result.
+        function checking_result() {
+            let score = 0;
+            let score2 = 0;
+            for (let i = 0; i <= h2.length - 1; i++) {
+                if (h2[i].style.visibility === "visible") {
+                    if (h2[i].innerHTML === document.querySelector(".player1").innerHTML[0]) {
+                        score += 1;
+                    }
+                    else if (h2[i].innerHTML === document.querySelector(".player2").innerHTML[0]) {
+                        score2 += 1;
+                    }
+                }
+            }
+            document.querySelector("p").innerHTML = `The score of ${document.querySelector(".player1").innerHTML}: ${score}. ${document.querySelector(".player2").innerHTML}: ${score2}.`;
+        }
+        // declare a function, and run when the one box is completed
+        function checking_house_complete() {
+            if (permission_for_checking_house === true) {
+                
+                // loop over for checking each box
+                for (let i = 0; i < visible.length; i++) {
+                    console.log(visible.length);
+                    if (visible[i].dataset.where === `${from}-${to}` || visible[i].dataset.where === `${to}-${from}`) {
+                        console.log("1st mission crossed");
+                        console.log(visible[i].style.visibility === "hidden");
+                        console.log(visible[i])
+                        if (visible[i].style.visibility === "visible") {
+                            console.log("permission_granted!")
+                            console.log("2nd mission crossed");
+                            if (i + 19 <= visible.length && i + 20 <= visible.length && i + 39 <= visible.length) {
+                                // console.log(`${parseInt(from)} is === ${parseInt(to - 1)}`);
+                                // console.log(`${parseInt(from - 1)} is === ${parseInt(to)}`);
+                                if (parseInt(from) === parseInt(to - 1) || parseInt(to) === parseInt(from - 1)) {
+                                console.log(visible[i + 19], visible[i + 20], visible[i + 39]);
+                                // console.log("this is again")
+                                if (visible[i + 19].style.visibility === "visible" && visible[i + 20].style.visibility === "visible" && visible[i + 39].style.visibility === "visible") {
+                                // changing_color_player_turn();
+                                console.log("3rd mission crossed");
+                                console.log(`${visible[i + 19].style.backgroundColor} is visible`);
+                                console.log(`${visible[i + 20].style.backgroundColor} is visible`);
+                                console.log(`${visible[i + 39].style.backgroundColor} is visible`);
+                                document.querySelector('p').innerHTML = "Now 1 house is completed!";
+                                // checking for first line
+                                if (parseInt(from) <= 20 || parseInt(to) <= 20) {
+                                    if (parseInt(from) < parseInt(to)) {
+                                        h2[from - 1].style.visibility = "visible";
+                                        // h2[from - 1].innerHTML = `${document.querySelector(".player1").innerHTML[0]}`;
+                                        box_filling(h2[from - 1]);
+                                    }
+                                    else {
+                                        h2[to - 1].style.visibility = "visible";
+                                        // h2[to - 1].innerHTML = "A"; 
+                                        box_filling(h2[to - 1]);
+                                    }
+                                }
+                                // checking for other lines
+                                else if (parseInt(from) <= 40 || parseInt(to) <= 40) {
+                                    if (parseInt(from) < parseInt(to)) {
+                                        h2[from - 2].style.visibility = "visible";
+                                        // h2[from - 2].innerHTML = "A";
+                                        box_filling(h2[from - 2]); 
+                                        console.log("in if");
+                                    }
+                                    else {
+                                        h2[to - 2].style.visibility = "visible";
+                                        // h2[to - 2].innerHTML = "A";
+                                        box_filling(h2[to - 2]);
+                                        console.log("in else"); 
+                                    }
+                                }
+                                else if (parseInt(from) <= 60 || parseInt(to) <= 60) {
+                                    if (parseInt(from) < parseInt(to)) {
+                                        h2[from - 3].style.visibility = "visible";
+                                        // h2[from - 3].innerHTML = "A"; 
+                                        box_filling(h2[from - 3]);
+                                        console.log("in if");
+                                    }
+                                    else {
+                                        h2[to - 3].style.visibility = "visible";
+                                        // h2[to - 3].innerHTML = "A";
+                                        box_filling(h2[to - 3]);
+                                        console.log("in else"); 
+                                    }
+                                }
+                                else if (parseInt(from) <= 80 || parseInt(to) <= 80) {
+                                    if (parseInt(from) < parseInt(to)) {
+                                        h2[from - 4].style.visibility = "visible";
+                                        // h2[from - 4].innerHTML = "A"; 
+                                        box_filling(h2[from - 4]);
+                                        console.log("in if");
+                                    }
+                                    else {
+                                        h2[to - 4].style.visibility = "visible";
+                                        // h2[to - 4].innerHTML = "A";
+                                        box_filling(h2[to - 4]);
+                                        console.log("in else"); 
+                                    }
+                                }
+                                else if (parseInt(from) <= 100 || parseInt(to) <= 100) {
+                                    if (parseInt(from) < parseInt(to)) {
+                                        h2[from - 5].style.visibility = "visible";
+                                        // h2[from - 5].innerHTML = "A"; 
+                                        box_filling(h2[from - 5]);
+                                        console.log("in if");
+                                    }
+                                    else {
+                                        h2[to - 5].style.visibility = "visible";
+                                        // h2[to - 5].innerHTML = "A";
+                                        box_filling(h2[to - 5]);
+                                        console.log("in else"); 
+                                    }
+                                }
+                                else if (parseInt(from) <= 120 || parseInt(to) <= 120) {
+                                    if (parseInt(from) < parseInt(to)) {
+                                        h2[from - 6].style.visibility = "visible";
+                                        // h2[from - 6].innerHTML = "A"; 
+                                        box_filling(h2[from - 6]);
+                                        console.log("in if");
+                                    }
+                                    else {
+                                        h2[to - 6].style.visibility = "visible";
+                                        // h2[to - 6].innerHTML = "A";
+                                        box_filling(h2[to - 6]);
+                                        console.log("in else"); 
+                                    }
+                                }
+                                else if (parseInt(from) <= 140 || parseInt(to) <= 140) {
+                                    if (parseInt(from) < parseInt(to)) {
+                                        h2[from - 7].style.visibility = "visible";
+                                        // h2[from - 7].innerHTML = "A"; 
+                                        box_filling(h2[from - 7]);
+                                        console.log("in if");
+                                    }
+                                    else {
+                                        h2[to - 7].style.visibility = "visible";
+                                        // h2[to - 7].innerHTML = "A";
+                                        box_filling(h2[to - 7]);
+                                        console.log("in else"); 
+                                    }
+                                }
+                                else if (parseInt(from) <= 160 || parseInt(to) <= 160) {
+                                    if (parseInt(from) < parseInt(to)) {
+                                        h2[from - 8].style.visibility = "visible";
+                                        // h2[from - 8].innerHTML = "A"; 
+                                        box_filling(h2[from - 8]);
+                                        console.log("in if");
+                                    }
+                                    else {
+                                        h2[to - 8].style.visibility = "visible";
+                                        // h2[to - 8].innerHTML = "A";
+                                        box_filling(h2[to - 8]);
+                                        console.log("in else"); 
+                                    }
+                                }
+                            }
+                        }
+                        }
+                            if (i + 1 > 0 && i + 20 <= visible.length && i - 19 > 0) {
+                                // console.log(`${parseInt(from)} === ${parseInt(to - 20)}`);
+                                // console.log(`${parseInt(from - 20)} === ${parseInt(to)}`);
+                                if (parseInt(from) === parseInt(to - 20) || parseInt(to) === parseInt(from - 20)) {
+                                console.log(visible[i + 1], visible[i + 20], visible[i - 19]);
+                                if (visible[i + 1].style.visibility === "visible" && visible[i + 20].style.visibility === "visible" && visible[i - 19].style.visibility === "visible") { 
+                                    // changing_color_player_turn();
+                                    console.log("the first condition");
+                                    // h2[to - 8].style.visibility = "visible";
+                                    // h2[to - 8].innerHTML = "A";
+                                    document.querySelector("p").innerHTML = "Now 1 house is completed!";
+                                    if (parseInt(from) <= 20 || parseInt(to) <= 20) {
+                                        if (parseInt(from) < parseInt(to)) {
+                                            h2[from - 1].style.visibility = "visible";
+                                            // h2[from - 1].innerHTML = "A"; 
+                                            box_filling(h2[from - 1]);
+                                            console.log("in if");
+                                            
+                                        }
+                                        else {
+                                            h2[to - 1].style.visibility = "visible";
+                                            // h2[to - 1].innerHTML = "A";
+                                            box_filling(h2[to - 1]);
+                                            console.log("in else"); 
+                                        }
+                                    } 
+                                    else if (parseInt(from) <= 40 || parseInt(to) <= 40) {
+                                        if (parseInt(from) < parseInt(to)) {
+                                            h2[from - 2].style.visibility = "visible";
+                                            // h2[from - 2].innerHTML = "A";
+                                            box_filling(h2[from - 2]); 
+                                            console.log("in if");
+                                        }
+                                        else {
+                                            h2[to - 2].style.visibility = "visible";
+                                            // h2[to - 2].innerHTML = "A";
+                                            box_filling(h2[to - 2]);
+                                            console.log("in else"); 
+                                        }
+                                    } 
+                                    else if (parseInt(from) <= 60 || parseInt(to) <= 60) {
+                                        if (parseInt(from) < parseInt(to)) {
+                                            h2[from - 3].style.visibility = "visible";
+                                            // h2[from - 3].innerHTML = "A";
+                                            box_filling(h2[from - 3]); 
+                                            console.log("in if");
+                                        }
+                                        else {
+                                            h2[to - 3].style.visibility = "visible";
+                                            // h2[to - 3].innerHTML = "A";
+                                            box_filling(h2[to - 3]);
+                                            console.log("in else"); 
+                                        }
+                                    }
+                                    else if (parseInt(from) <= 80 || parseInt(to) <= 80) {
+                                        if (parseInt(from) < parseInt(to)) {
+                                            h2[from - 4].style.visibility = "visible";
+                                            // h2[from - 4].innerHTML = "A"; 
+                                            box_filling(h2[from - 4]);
+                                            console.log("in if");
+                                        }
+                                        else {
+                                            h2[to - 4].style.visibility = "visible";
+                                            // h2[to - 4].innerHTML = "A";
+                                            box_filling(h2[to - 4]);
+                                            console.log("in else"); 
+                                        }
+                                    }
+                                    else if (parseInt(from) <= 100 || parseInt(to) <= 100) {
+                                        if (parseInt(from) < parseInt(to)) {
+                                            h2[from - 5].style.visibility = "visible";
+                                            // h2[from - 5].innerHTML = "A";
+                                            box_filling(h2[from - 5]); 
+                                            console.log("in if");
+                                        }
+                                        else {
+                                            h2[to - 5].style.visibility = "visible";
+                                            // h2[to - 5].innerHTML = "A";
+                                            box_filling(h2[to - 5]);
+                                            console.log("in else"); 
+                                        }
+                                    }
+                                    else if (parseInt(from) <= 120 || parseInt(to) <= 120) {
+                                        if (parseInt(from) < parseInt(to)) {
+                                            h2[from - 6].style.visibility = "visible";
+                                            // h2[from - 6].innerHTML = "A";
+                                            box_filling(h2[from - 6]); 
+                                            console.log("in if");
+                                        }
+                                        else {
+                                            h2[to - 6].style.visibility = "visible";
+                                            // h2[to - 6].innerHTML = "A";
+                                            box_filling(h2[to - 6]);
+                                            console.log("in else"); 
+                                        }
+                                    }
+                                    else if (parseInt(from) <= 140 || parseInt(to) <= 140) {
+                                        if (parseInt(from) < parseInt(to)) {
+                                            h2[from - 7].style.visibility = "visible";
+                                            // h2[from - 7].innerHTML = "A";
+                                            box_filling(h2[from - 7]); 
+                                            console.log("in if");
+                                        }
+                                        else {
+                                            h2[to - 7].style.visibility = "visible";
+                                            // h2[to - 7].innerHTML = "A";
+                                            box_filling(h2[to - 7]);
+                                            console.log("in else"); 
+                                        }
+                                    }
+                                    else if (parseInt(from) <= 160 || parseInt(to) <= 160) {
+                                        if (parseInt(from) < parseInt(to)) {
+                                            console.log("error in this!")
+                                            h2[from - 8].style.visibility = "visible";
+                                            // h2[from - 8].innerHTML = "A";
+                                            box_filling(h2[from - 8]); 
+                                            console.log("in if");
+                                        }
+                                        else {
+                                            h2[to - 8].style.visibility = "visible";
+                                            // h2[to - 8].innerHTML = "A";
+                                            box_filling(h2[to - 8]);
+                                            console.log("in else"); 
+                                        } 
+                                    }
+                                    else if (parseInt(from) <= 180 || parseInt(to) <= 180) {
+                                        if (parseInt(from) < parseInt(to)) {
+                                            console.log("error in this!")
+                                            h2[from - 8].style.visibility = "visible";
+                                            // h2[from - 8].innerHTML = "A";
+                                            box_filling(h2[from - 9]);
+                                            console.log("in if");
+                                        }
+                                        else {
+                                            h2[to - 8].style.visibility = "visible";
+                                            // h2[to - 8].innerHTML = "A";
+                                            box_filling(h2[to - 9]);
+                                            console.log("in else"); 
+                                        }
+                                    }
+
+                                }
+                            }
+                            }
+                            if (i - 1 > 0 && i - 20 > 0 && i + 19 <= visible.length) {
+                                if (parseInt(from) === parseInt(to - 20) || parseInt(to) === parseInt(from - 20)) {
+                                console.log(visible[i - 1], visible[i - 20], visible[i + 19]);
+                                if (visible[i - 1].style.visibility === "visible" && visible[i - 20].style.visibility === "visible" && visible[i + 19].style.visibility === "visible") {
+                                    // changing_color_player_turn();
+                                    console.log("the second condition");
+                                document.querySelector('p').innerHTML = "Now 1 house is completed!";
+                                // checking for first line
+                                if (parseInt(from) <= 20 || parseInt(to) <= 20) {
+                                        if (parseInt(from) < parseInt(to)) {
+                                            h2[from - 2].style.visibility = "visible";
+                                            // h2[from - 1].innerHTML = "A";
+                                            box_filling(h2[from - 2]);
+                                            console.log("in if");
+                                            console.log("expectation!");
+                                            
+                                        }
+                                        else {
+                                            h2[to - 2].style.visibility = "visible";
+                                            // h2[to - 1].innerHTML = "A";
+                                            box_filling(h2[to - 2]);
+                                            console.log("in else"); 
+                                        }
+                                    } 
+                                    else if (parseInt(from) <= 40 || parseInt(to) <= 40) {
+                                        if (parseInt(from) < parseInt(to)) {
+                                            h2[from - 3].style.visibility = "visible";
+                                            // h2[from - 2].innerHTML = "A";
+                                            box_filling(h2[from - 3]); 
+                                            console.log("in if");
+                                        }
+                                        else {
+                                            h2[to - 3].style.visibility = "visible";
+                                            // h2[to - 2].innerHTML = "A";
+                                            box_filling(h2[to - 3]);
+                                            console.log("in else"); 
+                                        }
+                                    } 
+                                    else if (parseInt(from) <= 60 || parseInt(to) <= 60) {
+                                        if (parseInt(from) < parseInt(to)) {
+                                            h2[from - 4].style.visibility = "visible";
+                                            // h2[from - 3].innerHTML = "A";
+                                            box_filling(h2[from - 4]); 
+                                            console.log("in if");
+                                        }
+                                        else {
+                                            h2[to - 4].style.visibility = "visible";
+                                            // h2[to - 3].innerHTML = "A";
+                                            box_filling(h2[to - 4]);
+                                            console.log("in else"); 
+                                        }
+                                    }
+                                    else if (parseInt(from) <= 80 || parseInt(to) <= 80) {
+                                        if (parseInt(from) < parseInt(to)) {
+                                            h2[from - 5].style.visibility = "visible";
+                                            // h2[from - 4].innerHTML = "A"; 
+                                            box_filling(h2[from - 5]);
+                                            console.log("in if");
+                                        }
+                                        else {
+                                            h2[to - 5].style.visibility = "visible";
+                                            // h2[to - 4].innerHTML = "A";
+                                            box_filling(h2[to - 5]);
+                                            console.log("in else"); 
+                                        }
+                                    }
+                                    else if (parseInt(from) <= 100 || parseInt(to) <= 100) {
+                                        if (parseInt(from) < parseInt(to)) {
+                                            h2[from - 6].style.visibility = "visible";
+                                            // h2[from - 5].innerHTML = "A";
+                                            box_filling(h2[from - 6]); 
+                                            console.log("in if");
+                                        }
+                                        else {
+                                            h2[to - 6].style.visibility = "visible";
+                                            // h2[to - 5].innerHTML = "A";
+                                            box_filling(h2[to - 6]);
+                                            console.log("in else"); 
+                                        }
+                                    }
+                                    else if (parseInt(from) <= 120 || parseInt(to) <= 120) {
+                                        if (parseInt(from) < parseInt(to)) {
+                                            h2[from - 7].style.visibility = "visible";
+                                            // h2[from - 6].innerHTML = "A";
+                                            box_filling(h2[from - 7]); 
+                                            console.log("in if");
+                                        }
+                                        else {
+                                            h2[to - 7].style.visibility = "visible";
+                                            // h2[to - 6].innerHTML = "A";
+                                            box_filling(h2[to - 7]);
+                                            console.log("in else"); 
+                                        }
+                                    }
+                                    else if (parseInt(from) <= 140 || parseInt(to) <= 140) {
+                                        if (parseInt(from) < parseInt(to)) {
+                                            h2[from - 8].style.visibility = "visible";
+                                            // h2[from - 7].innerHTML = "A";
+                                            box_filling(h2[from - 8]); 
+                                            console.log("in if");
+                                        }
+                                        else {
+                                            h2[to - 8].style.visibility = "visible";
+                                            // h2[to - 7].innerHTML = "A";
+                                            box_filling(h2[to - 8]);
+                                            console.log("in else"); 
+                                        }
+                                    }
+                                    else if (parseInt(from) <= 160 || parseInt(to) <= 160) {
+                                        if (parseInt(from) < parseInt(to)) {
+                                            console.log("error in this!")
+                                            h2[from - 9].style.visibility = "visible";
+                                            // h2[from - 8].innerHTML = "A";
+                                            box_filling(h2[from - 9]); 
+                                            console.log("in if");
+                                        }
+                                        else {
+                                            h2[to - 9].style.visibility = "visible";
+                                            // h2[to - 8].innerHTML = "A";
+                                            box_filling(h2[to - 9]);
+                                            console.log("in else"); 
+                                        } 
+                                    }
+                                    else if (parseInt(from) <= 180 || parseInt(to) <= 180) {
+                                        if (parseInt(from) < parseInt(to)) {
+                                            console.log("error in this!")
+                                            h2[from - 10].style.visibility = "visible";
+                                            // h2[from - 8].innerHTML = "A";
+                                            box_filling(h2[from - 10]);
+                                            console.log("in if");
+                                        }
+                                        else {
+                                            h2[to - 10].style.visibility = "visible";
+                                            // h2[to - 8].innerHTML = "A";
+                                            box_filling(h2[to - 10]);
+                                            console.log("in else"); 
+                                        }
+                                    }
+                            }
+                        }
+                                }
+                            }
+                            if (i - 19 > 0 && i - 20 > 0 && i - 39 > 0) {
+                                console.log("one step to third condition");
+                                if (parseInt(from) === parseInt(to - 1) || parseInt(to) === parseInt(from - 1))  {
+                                console.log(visible[i - 19], visible[i - 20], visible[i - 39]);
+                                if (visible[i - 19].style.visibility === "visible" && visible[i - 20].style.visibility === "visible" && visible[i - 39].style.visibility === "visible") {
+                                    // changing_color_player_turn();
+                                    console.log("the third condition");
+                                    console.log("Anas");
+                                    document.querySelector('p').innerHTML = "Now 1 house is completed!";
+                                // checking for first line
+                                if (parseInt(from) <= 20 || parseInt(to) <= 20) {
+                                    if (parseInt(from) < parseInt(to)) {
+                                        h2[from - 20].style.visibility = "visible";
+                                        // h2[from - 21].innerHTML = "A";
+                                        box_filling(h2[from - 20]); 
+                                    }
+                                    else {
+                                        h2[to - 20].style.visibility = "visible";
+                                        // h2[to - 21].innerHTML = "A";
+                                        box_filling(h2[to - 20]); 
+                                    }
+                                }
+                                // checking for other lines
+                                else if (parseInt(from) <= 40 || parseInt(to) <= 40) {
+                                    if (parseInt(from) < parseInt(to)) {
+                                        h2[from - 21].style.visibility = "visible";
+                                        // h2[from - 21].innerHTML = "A";
+                                        box_filling(h2[from - 21]); 
+                                        console.log("in if");
+                                    }
+                                    else {
+                                        h2[to - 21].style.visibility = "visible";
+                                        // h2[to - 21].innerHTML = "A";
+                                        box_filling(h2[to - 21]);
+                                        console.log("in else"); 
+                                    }
+                                }
+                                else if (parseInt(from) <= 60 || parseInt(to) <= 60) {
+                                    if (parseInt(from) < parseInt(to)) {
+                                        h2[from - 22].style.visibility = "visible";
+                                        // h2[from - 22].innerHTML = "A";
+                                        box_filling(h2[from - 22]); 
+                                        console.log("in if");
+                                    }
+                                    else {
+                                        h2[to - 22].style.visibility = "visible";
+                                        // h2[to - 22].innerHTML = "A";
+                                        box_filling(h2[to - 22]);
+                                        console.log("in else"); 
+                                    }
+                                }
+                                else if (parseInt(from) <= 80 || parseInt(to) <= 80) {
+                                    if (parseInt(from) < parseInt(to)) {
+                                        h2[from - 23].style.visibility = "visible";
+                                        // h2[from - 23].innerHTML = "A";
+                                        box_filling(h2[from - 23]); 
+                                        console.log("in if");
+                                    }
+                                    else {
+                                        h2[to - 23].style.visibility = "visible";
+                                        // h2[to - 23].innerHTML = "A";
+                                        box_filling(h2[to - 23]);
+                                        console.log("in else"); 
+                                    }
+                                }
+                                else if (parseInt(from) <= 100 || parseInt(to) <= 100) {
+                                    if (parseInt(from) < parseInt(to)) {
+                                        h2[from - 24].style.visibility = "visible";
+                                        // h2[from - 24].innerHTML = "A";
+                                        box_filling(h2[from - 24]); 
+                                        console.log("in if");
+                                    }
+                                    else {
+                                        h2[to - 24].style.visibility = "visible";
+                                        // h2[to - 24].innerHTML = "A";
+                                        box_filling(h2[to - 24]);
+                                        console.log("in else"); 
+                                    }
+                                }
+                                else if (parseInt(from) <= 120 || parseInt(to) <= 120) {
+                                    if (parseInt(from) < parseInt(to)) {
+                                        h2[from - 25].style.visibility = "visible";
+                                        // h2[from - 25].innerHTML = "A";
+                                        box_filling(h2[from - 25]); 
+                                        console.log("in if");
+                                    }
+                                    else {
+                                        h2[to - 25].style.visibility = "visible";
+                                        // h2[to - 25].innerHTML = "A";
+                                        box_filling(h2[to - 25]);
+                                        console.log("in else"); 
+                                    }
+                                }
+                                else if (parseInt(from) <= 140 || parseInt(to) <= 140) {
+                                    if (parseInt(from) < parseInt(to)) {
+                                        h2[from - 26].style.visibility = "visible";
+                                        // h2[from - 26].innerHTML = "A";
+                                        box_filling(h2[from - 26]); 
+                                        console.log("in if");
+                                    }
+                                    else {
+                                        h2[to - 26].style.visibility = "visible";
+                                        // h2[to - 26].innerHTML = "A";
+                                        box_filling(h2[to - 26]);
+                                        console.log("in else"); 
+                                    }
+                                }
+                                else if (parseInt(from) <= 160 || parseInt(to) <= 160) {
+                                    if (parseInt(from) < parseInt(to)) {
+                                        h2[from - 27].style.visibility = "visible";
+                                        // h2[from - 27].innerHTML = "A";
+                                        box_filling(h2[from - 27]); 
+                                        console.log("in if");
+                                    }
+                                    else {
+                                        h2[to - 27].style.visibility = "visible";
+                                        // h2[to - 27].innerHTML = "A";
+                                        box_filling(h2[to - 27]);
+                                        console.log("in else"); 
+                                    }
+                                }
+                                else if (parseInt(from) <= 180 || parseInt(to) <= 180) {
+                                    if (parseInt(from) < parseInt(to)) {
+                                        h2[from - 28].style.visibility = "visible";
+                                        // h2[from - 28].innerHTML = "A";
+                                        box_filling(h2[from - 28]); 
+                                        console.log("in if");
+                                    }
+                                    else {
+                                        h2[to - 28].style.visibility = "visible";
+                                        // h2[to - 28].innerHTML = "A";
+                                        box_filling(h2[to - 28]);
+                                        console.log("in else"); 
+                                    }
+                                }
+                            }
+                        } // name
+                                }
+                            }
+                    }
+                }
+            }
+            permission_dot_reset = false;
+        
+
+        function selected_dot(id) {
+            let current_dot = document.querySelector(`.${id}`);
+            current_dot.style.backgroundColor = "white";
+            current_dot.style.width = "2px";
+            current_dot.style.height = "2px";
+            current_dot.style.border = "2px solid black";
+        }
+        function convert_dot(x) {
+            let current_dot = document.querySelector(`.${x}`);
+                        current_dot.style.backgroundColor = "red";
+                        current_dot.style.width = "6px";
+                        current_dot.style.height = "6px";
+                        current_dot.style.border = "0px";
+        }
+        // starting the script, When DOMContentLoaded
+        document.addEventListener("DOMContentLoaded", () => {
+            // declare function, when dot is clicked
+            document.addEventListener("click", () => {
+                target = event.target;
+                id = target.dataset.id;
+                if (target.className === `dot ${id}`) {
+                    if (permission_dot_reset === true) {
+                        convert_dot(previous.dataset.id);
+                        permission_dot_reset = false;
+                    }
+                }
+                if (target.className === `dot ${id}`) {
+                    previous = target;
+                    permission_dot_reset = true;
+                    selected_dot(event.target.dataset.id);
+                }
+            });
+                document.addEventListener("keydown", () => {
+                    if (target) {
+                    if (target.className === `dot ${id}`) {
+                        key = event.key;
+                        if (from === undefined && to === undefined) {
+                            name = null;
+                            console.log("We are in undefined!")
+                            if (key === "Enter") {
+                                for (let i = 0; i <= target.dataset.id.length - 1; i++) {
+                                    if (i >= 3) {
+                                        if (!checker) {
+                                            from = target.dataset.id[i]
+                                            checker = true;
+                                        }
+                                        else if (checker) {
+                                            from += target.dataset.id[i];
+                                        }
+                                        if (target.dataset.id.length - 1 === i) {
+                                            checker = false;
+                                        }
+                                    }
+                                }
+                                document.querySelector("p").innerHTML = `${from} Selected from`
+                            }
+                            else if (key !== "Enter") {
+                                document.querySelector("p").innerHTML = `Press Enter to Select`
+                            }
+                        }
+                        else if (from !== undefined && to === undefined) {
+                            if (key === "Enter") {
+                                for (let i = 0; i <= target.dataset.id.length - 1; i++) {   
+                                    if (i >= 3) {
+                                        if (!checker) {
+                                            to = target.dataset.id[i]
+                                            checker = true;
+                                        }
+                                        else if (checker) {
+                                            to += target.dataset.id[i];
+                                        }
+                                        if (target.dataset.id.length - 1 === i) {
+                                            checker = false;
+                                        }
+                                    }
+                                }
+                                document.querySelector("p").innerHTML = `${to} Selected to`
+                                visible = document.querySelectorAll("[data-where]");
+                                // console.log(document.querySelectorAll('h2'));
+                                h2 = document.querySelectorAll("h2");
+                                // h2[0].innerHTML = "A";
+                                // visible the selected line
+                                for (let i = 0; i <= visible.length - 1; i++) {
+                                    if (parseInt(from) < parseInt(to)) {
+                                        if (visible[i].dataset.where === `${from}-${to}`) {
+                                            current_line = visible[i];
+                                            draw_line(current_line);
+                                            
+                                            permission_for_checking_house = true
+                                            console.log("checking house_complete()")
+                                            checking_house_complete();
+                                            if (signal_from_draw_line === true) {
+                                                changing_color_player_turn();
+                                                signal_from_draw_line = false;
+                                            }
+                                        }
+                                    } 
+                                    else if (parseInt(from) > parseInt(to)) {
+                                        if (visible[i].dataset.where === `${to}-${from}`) {
+                                            current_line = visible[i];
+                                            draw_line(current_line);
+                                            
+                                            permission_for_checking_house = true
+                                            checking_house_complete();
+                                            if (signal_from_draw_line === true) {
+                                                changing_color_player_turn();
+                                                signal_from_draw_line = false;
+                                            }
+                                        }
+                                    }
+                                }
+                                from = undefined;
+                                to = undefined;
+                            }
+                            else if (key !== "Enter") {
+                                document.querySelector("p").innerHTML = `Press Enter to Select`
+                            }
+                        }
+                        permission_dot_reset = true;
+                    }
+                }
+                    });
+        });
+    </script>
+</body>
+</html>
